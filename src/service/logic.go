@@ -1,6 +1,9 @@
 package service
 
-import "catalog/domain"
+import (
+	"catalog/domain"
+	"github.com/golang-jwt/jwt/v5"
+)
 
 type service struct {
 	productRepo domain.Repository
@@ -27,4 +30,21 @@ func (s *service) FindAll() ([]*domain.Product, error) {
 
 func (s *service) Delete(code string) error {
 	return s.productRepo.Delete(code)
+}
+
+type loginService struct{}
+
+func NewLoginService() *loginService {
+	return &loginService{}
+}
+
+func (ls *loginService) Login(login domain.Login) (string, error) {
+	// Hardcoded allowed password
+	if login.Password != "password" {
+		return "", domain.ErrInvalidLogin
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+		"username": login,
+	})
+	return token.SignedString([]byte("secret"))
 }

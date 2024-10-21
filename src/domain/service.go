@@ -17,3 +17,7 @@ type Repository interface {
 	FindAll() ([]*Product, error)
 	Delete(code string) error
 }
+
+type LoginService interface {
+	Login(login Login) (string, error)
+}

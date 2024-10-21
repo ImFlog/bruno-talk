@@ -1,7 +1,7 @@
 ---
 # You can also start simply with 'default'
 theme: dracula
-title: We don't talk about Bruno
+title: Ne parlons pas de Bruno
 highlighter: shiki
 drawings:
   enabled: false

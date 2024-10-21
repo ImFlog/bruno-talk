@@ -1,16 +1,19 @@
 module catalog
 
 go 1.23
+
 toolchain go1.23.1
 
 require (
+	github.com/gofiber/contrib/jwt v1.0.10
 	github.com/gofiber/fiber/v2 v2.52.5
+	github.com/golang-jwt/jwt/v5 v5.2.1
 	github.com/pkg/errors v0.9.1
 	go.mongodb.org/mongo-driver v1.16.1
-	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
+	github.com/MicahParks/keyfunc/v2 v2.1.0 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/uuid v1.5.0 // indirect

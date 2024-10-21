@@ -1,0 +1,30 @@
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+script:pre-request {
+  console.log(`Running pre-request script`);
+  
+  const axios = require('axios');
+  
+  try {
+    const data = {
+      username: bru.getEnvVar("username"),
+      password: bru.getEnvVar("password"),
+    };
+    console.log(data);
+    tokenResponse = await axios.post(
+      bru.getEnvVar("host") + "/login",
+      data
+    );
+    accessToken = tokenResponse.data.token;
+    console.log(`Token is ${accessToken}`);
+    bru.setVar("token", accessToken);
+  } catch (error) {
+    throw error
+  }
+}

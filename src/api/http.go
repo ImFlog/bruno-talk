@@ -2,15 +2,17 @@ package api
 
 import (
 	"catalog/domain"
+	"errors"
 	"github.com/gofiber/fiber/v2"
 )
 
 type handler struct {
 	productService domain.Service
+	loginService   domain.LoginService
 }
 
 func (h *handler) Get(ctx *fiber.Ctx) error {
-	code := ctx.Query("code")
+	code := ctx.Params("code")
 	p, err := h.productService.Find(code)
 	if err != nil {
 		return ctx.Status(404).JSON(nil)
@@ -59,7 +61,22 @@ func (h *handler) GetAll(ctx *fiber.Ctx) error {
 	return ctx.JSON(&p)
 }
 
+func (h *handler) Login(ctx *fiber.Ctx) error {
+	var r domain.Login
+	if err := ctx.BodyParser(&r); err != nil {
+		return ctx.Status(400).JSON(nil)
+	}
+	token, err := h.loginService.Login(r)
+	if err != nil {
+		if errors.Is(err, domain.ErrInvalidLogin) {
+			return ctx.Status(401).JSON(nil)
+		}
+		return ctx.Status(500).JSON(nil)
+	}
+	return ctx.JSON(fiber.Map{"token": token})
+}
+
 // NewHandler  New handler instantiates a http handler for our product service
-func NewHandler(productService domain.Service) *handler {
-	return &handler{productService: productService}
+func NewHandler(productService domain.Service, loginService domain.LoginService) *handler {
+	return &handler{productService: productService, loginService: loginService}
 }
