@@ -28,3 +28,6 @@ go.work.sum
 
 # mongo data files
 db_data/
+
+# macos 💩
+.DS_Store

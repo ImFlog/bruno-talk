@@ -46,13 +46,6 @@ const imageSrc = resolveAssetUrl(props.image);
           <span class="uppercase tag mx-2" v-for="item in tags"><span class="accent">#</span>{{ item }}</span>
         </div>
       </div>
-      <div class="contact flex-col w-full">
-        <h3 class="uppercase">Contact</h3>
-
-        <a class="mx-2" v-if="blog" v-bind:href="blog.url" target="_blank">{{ blog.name }}</a>
-        <a class="mx-2" v-if="website" v-bind:href="website.url" target="_blank">{{ website.name }}</a>
-        <a class="mx-2" v-bind:href="'https://twitter.com/' + twitter" target="_blank">@{{ twitter }}</a>
-      </div>
     </div>
     <div class="flex flex-col"></div>
 

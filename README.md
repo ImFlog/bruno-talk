@@ -1,10 +1,19 @@
-# Let's not talk about Bruno
+# We don't talk about Bruno
 
-* [ ] UI prez a améliorer == c'est moche pour le moment
-* [ ] Scénario de la démo à écrire quelque part et à répêter.
 * [ ] Vérifier le timing !
+* [ ] Si j'ai du temps, forker le projet de Alvaro et:
+  * enlever les vagues
+  * mettre le lien bluesky en bas
+  * diminuer la taille de l'image de profile
 
-## Scenario
+## Intro (2min)
+
+```bash
+cd prez
+yarn run dev
+```
+
+## Demo (10min)
 
 Before running the scenario, make sure some products are inserted in the database.
 
@@ -21,5 +30,10 @@ Before running the scenario, make sure some products are inserted in the databas
 7. Montrer la route de login et sa réponse
 8. Montrer la configuration de l'auth au niveau de la collection
 9. Activer l'heritage de la configuration de l'auth au niveau de la route de création de produit
-10. Lancer la collection complète via CLI (penser à bien modifier la configuration de l'auth sur la route de création de produit)
+10. Montrer rapidement l'arborescence des fichiers bruno dans mon IDE
+11. Lancer la collection complète via CLI (penser à bien modifier la configuration de l'auth sur la route de création de produit)
    * `bru run bruno --env local`
+
+## Comparison (3min)
+
+* Reopen the slides

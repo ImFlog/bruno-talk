@@ -1,117 +1,116 @@
 ---
-# You can also start simply with 'default'
-theme: dracula
-title: Ne parlons pas de Bruno
+theme: penguin
+title: We don't talk about Bruno
 highlighter: shiki
 drawings:
   enabled: false
 lineNumbers: true
-
-transition: slide-left
-class: text-center
+colorSchema: light
 hideInToc: true
 mdc: true
-layout: cover
+
+themeConfig:
+  eventLogo: 'https://bdxio.fr/favicon.ico'
+  eventUrl: 'https://bdxio.fr/'
+
+transition: slide-left
+layout: intro
 ---
 
-# Ne parlons pas de Bruno
+# We don't talk about Bruno
 
-BDX I/O 2024
-
-<div class="w-md ma">
-    <img src="/images/bruno.jpg" alt="Bruno" />
+<div class="w-xs ma">
+    <img src="/images/bruno_labrador_transparent.png" alt="Bruno" />
 </div>
 
-<div class="abs-br m-6 flex gap-2">
-    <a href="https://github.com/ImFlog/bruno-talk" target="_blank" alt="GitHub" title="Open in GitHub"
-      class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-      <carbon-logo-github />
-    </a>
-</div>
-
-
 ---
-layout: profile
-speaker: Florian Garcia
-job: Tech Lead
-company: Synapse Medicine
-tags: [Backend, Cloud, Health tech]
-website:
-url: https://synapse-medicine.com
-name: synapse-medicine
-image: /images/florian.png
-twitter: ImFlog
+layout: presenter
+presenterImage: /images/florian.png
 ---
 
+# Florian Garcia
+
+Tech lead at <a  href="https://www.synapse-medicine.com/">Synapse Medicine</a>
+
+- Bordeaux 🍷, France 🥖
+- Focusing on improving healthcare with technology ⚕️
+- I often write stuff in my personal <a href="https://imflog.github.io/">blog</a>
+- Say hi at <a href="https://bsky.app/profile/imflog.bsky.social"><logos-bluesky mr-1 />@imflog.bsky.social</a>
+
+[We are looking for new talents](https://careers.synapse-medicine.com/fr/jobs) ! 🚀
+
+<!--
+We are looking for SRE and Product Owner notably.
+-->
+
 ---
-layout: two-cols
+layout: text-image
+media: /images/UI-screenshot.png
 ---
 
 # ~~Who~~ What is Bruno ?
 
-[//]: # (NB: I'm really bad at CSS)
+* An open source API Client 🤖
+* Like Postman <logos-postman-icon mr-1 />, Insomnia <logos-insomnia mr-1 /> ...
+* Fast ⚡ and Git friendly <logos-git-icon mr-1 />
+* Offline only, no cloud sync ! 
+* Written in Javascript <logos-javascript mr-1 />
+* UI, CLI and VS Code extension <logos-visual-studio-code mr-1 />
 
-<br />
-<br />
-
-* Open source API client
-* Like Postman, Insomnia ...
-* Written in Javascript
-* Offline only
-* Cute dog logo
-
-::right::
-
-<br />
-<br />
-<br />
-<br />
-
-<div class="w-xs ma">
-    <img src="/images/logo-bruno.png" alt="Bruno" style="width: 250px"/>
+<div class="ma" style="width:10rem">
+    <img src="/images/logo-bruno.png"/>
 </div>
 
+<!--
+API client qui permet aussi de tester.
+Git friendly -> les fichiers sont stocké en plain-text sur le disque.
+Offline only -> pas de synchronisation cloud 
+-->
+
 ---
-layout: default
+layout: new-section
 ---
 
 # Demo
 
-[//]: # (TODO: Add a link of the repository + a photo of the UI ?)
-
-* Variables, environments and secrets
-* Authentication
-* Scripting
-* Testing
-* CLI
-
----
-layout: section
----
-
-# What about Postman ?
+<div class="w-xs ma">
+    <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2djMXNzaHhrcnl0YXNiNzh6b2tma3ZnOHUxOG9vZ3pudzN5bjl1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DVnyqb4ff3BUxV33Sh/giphy.gif" width="400" />
+</div>
 
 ---
 layout: default
-zoom: 0.6
+zoom: 0.8
 ---
 
-## Quick comparison
+## VS Postman
 
-|                             | Postman                                                                                                                                                            | Bruno                                                          |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Request protocols           | HTTP, GraphQL, gRPC, WebSocket, Socket.IO, MQTT, SOAP.                                                                                                             | HTTP and GraphQL.                                              | 
-| Collection format           | Open source JSON format.                                                                                                                                           | Plain text markup language called Bru.                         |
-| Collection storage          | Proprietary cloud                                                                                                                                                  | In your file system.                                           |
-| Collection run              | Free and basic plan at 25 runs per month. Professional at 250 runs, unlimited for Enterprise.                                                                      | Unlimited runs, anywhere.                                      |
-| API requests transfert      | Through Postman servers in the web app. [Some reports](https://community.postman.com/t/working-in-offline-mode/20174/51) of proxied requests from the desktop app. | Directly from your computer.                                   |
-| Offline ?                   | [No](https://community.postman.com/t/working-in-offline-mode/20174/37)                                                                                             | Yes.                                                           |
-| Collaboration               | Paid feature to share with more than 3 users.                                                                                                                      | Free, just use git                                             |
-| Scripting with NPM modules  | Using workarounds like pulling from a CDN or copying the library code in a variable.                                                                               | Use a package.json, like usual                                 |
-| CLI                         | Postman CLI or Newman. Both have limits on Postman server API calls amount based on purchased plan.                                                                | [Bruno CLI](https://docs.usebruno.com/bru-cli/overview). Free. |
-| Local performance testing ? | Yes with run and user limits.                                                                                                                                      | No. But planned in the golden edition.                         |
+<br/>
 
-**But** Postman has features that Bruno doesn't have (yet).
+|                        | **Postman**                                                                                   | **Bruno**                              |
+|------------------------|-----------------------------------------------------------------------------------------------|----------------------------------------|
+| **Request protocols**  | HTTP, GraphQL, gRPC, WebSocket, Socket.IO, MQTT, SOAP.                                        | HTTP and GraphQL.                      | 
+| **Collection format**  | Open source JSON format.                                                                      | Plain text markup language called Bru. |
+| **Collection storage** | Proprietary cloud                                                                             | In your file system.                   |
+| **Collection run**     | Free and basic plan at 25 runs per month. Professional at 250 runs, unlimited for Enterprise. | Unlimited runs, anywhere.              |
+| **Collaboration**      | Paid feature to share with more than 3 users.                                                 | Free, just use git                     |
+
+---
+layout: default
+zoom: 0.8
+---
+
+## VS Postman
+
+<br />
+
+|                                 | **Postman**                                                                                                                                                              | **Bruno**                                                      |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| **API requests transfert**      | Through Postman servers in the web app. <br/> [Some reports](https://community.postman.com/t/working-in-offline-mode/20174/51) of proxied requests from the desktop app. | Directly from your computer.                                   |
+| **Offline ?**                   | [No](https://community.postman.com/t/working-in-offline-mode/20174/37)                                                                                                   | Yes.                                                           |
+| **Scripting with NPM modules**  | Using workarounds like pulling from a CDN or copying the library code in a variable.                                                                                     | Use a package.json, like usual                                 |
+| **CLI**                         | Postman CLI or Newman.<br/> Both have limits on Postman server API calls amount based on purchased plan.                                                                 | [Bruno CLI](https://docs.usebruno.com/bru-cli/overview). Free. |
+| **Local performance testing ?** | Yes with run and user limits.                                                                                                                                            | Not yet.<br/> Planned in the golden edition.                   |
+| **Additional features**         | [Many](https://www.postman.com/features/)                                                                                                                                | [Not so many](https://docs.usebruno.com/).                     |
 
 ---
 layout: two-cols
@@ -129,3 +128,11 @@ layout: two-cols
 Il y a aussi une version pour une utilisation personnelle qui coûte 19E en one-time payment pour 2 ordi et 2 ans de maj.
 -->
 
+---
+class: 'grid text-center align-self-center justify-self-center'
+layout: default
+---
+
+# Thank you 🐕
+
+[GitHub Repo](https://github.com/ImFlog/bruno-talk)
